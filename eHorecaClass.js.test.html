@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>eHorecaClass JavaScript test</title>
+	</head>
+	<body>
+		<pre id='result'></pre>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="eHorecaClass.js"></script>
+		<script>
+			
+			//Supposedly gotten from the user through an email / password form
+			var apiURL = "https://ehoreca.cmodlab-iu.edu.gr/api/";
+			var email = "<put your account's email here>";
+			var password = "<put your account's password here><put your account's password here>";
+		
+			var a_eHoreca = new eHoreca(apiURL);
+			a_eHoreca.connect(email, password);
+			
+			//document.getElementById('result').innerHTML = a_eHoreca.token;
+			//document.getElementById('result').innerHTML = a_eHoreca.printAllVars();
+			document.getElementById('result').innerHTML = JSON.stringify(a_eHoreca.getEndPoint("bins/"), undefined, 2);	//users/1
+		</script>
+	</body>
+</html>
